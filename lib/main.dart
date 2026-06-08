@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/about_me.dart';
+import 'package:portfolio/widgets/experiences.dart';
 import 'package:portfolio/widgets/profile.dart';
 import 'package:portfolio/widgets/projects.dart';
 
@@ -50,6 +51,7 @@ class MyPortfolio extends StatelessWidget {
                   const SizedBox(height: 8),
                   Projects(),
                   const SizedBox(height: 8),
+                  Experiences(),
                 ],
               ),
             ),
