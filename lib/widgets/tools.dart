@@ -1,12 +1,14 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/data/tools_data.dart';
 
 class Tools extends StatelessWidget {
-  const Tools({super.key});
-
+  Tools({super.key});
+  final List<Toolings> tools = ToolsData.tools;
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 16,
       children: [
         Align(
           alignment: Alignment.centerLeft,
@@ -19,36 +21,20 @@ class Tools extends StatelessWidget {
             ),
           ),
         ),
-        CarouselSlider(
-          items: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipRRect(
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: tools.map((tools) {
+            return Chip(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadiusGeometry.all(Radius.circular(8)),
-                child: Image.asset("images/web-dev.jpg"),
+                side: BorderSide(color: Colors.grey.shade200),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipRRect(
-                borderRadius: BorderRadiusGeometry.all(Radius.circular(8)),
-                child: Image.asset("images/web-dev.jpg"),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipRRect(
-                borderRadius: BorderRadiusGeometry.all(Radius.circular(8)),
-                child: Image.asset("images/web-dev.jpg"),
-              ),
-            ),
-          ],
-          options: CarouselOptions(
-            autoPlay: true,
-            aspectRatio: 1,
-            height: 100,
-            viewportFraction: 0.33,
-          ),
+              avatar: Image.asset(tools.image, height: 24),
+              label: Text(tools.name),
+            );
+          }).toList(),
         ),
       ],
     );

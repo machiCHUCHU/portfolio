@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/about_me.dart';
+import 'package:portfolio/widgets/activities.dart';
 import 'package:portfolio/widgets/certificates.dart';
 import 'package:portfolio/widgets/experiences.dart';
 import 'package:portfolio/widgets/profile.dart';
 import 'package:portfolio/widgets/projects.dart';
+import 'package:portfolio/widgets/tools.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,6 +57,10 @@ class MyPortfolio extends StatelessWidget {
                   Experiences(),
                   const SizedBox(height: 8),
                   Certificates(),
+                  const SizedBox(height: 8),
+                  Tools(),
+                  const SizedBox(height: 8),
+                  Activities(),
                 ],
               ),
             ),
