@@ -18,5 +18,10 @@ class CertData {
       issued: "June 2025",
       image: "images/accenture.jpg",
     ),
+    Certs(
+      title: "AI Fundamentals",
+      issued: "June 2026",
+      image: "images/ai-funda.jpg",
+    ),
   ];
 }

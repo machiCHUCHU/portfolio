@@ -45,6 +45,7 @@ class MyPortfolio extends StatelessWidget {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 spacing: 16,
                 children: [
                   const SizedBox(height: 8),
