@@ -1,39 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/data/profile_data.dart';
+import 'package:portfolio/theme/app_colors.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key});
 
-  Future<void> downloadResume() async {
-    final Uri url = Uri.parse("web/assets/suit.jpg");
-
-    await launchUrl(url);
+  Future<void> _launchURL(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    try {
+      if (!await launchUrl(url)) {
+        debugPrint('Could not launch $urlString');
+      }
+    } catch (e) {
+      debugPrint('Error launching url $urlString: $e');
+    }
   }
 
-  Future<void> emailTo() async {
-    final Uri url = Uri(scheme: 'mailto', path: 'ryanmarksagaysay02@gmail.com');
-
-    await launchUrl(url);
-  }
-
-  Future<void> facebook() async {
-    final Uri url = Uri.parse("https://www.facebook.com/ryanmark.reyes");
-
-    await launchUrl(url);
-  }
-
-  Future<void> linkedin() async {
-    final Uri url = Uri.parse(
-      "https://www.linkedin.com/in/sagaysay-ryan-mark-r",
-    );
-
-    await launchUrl(url);
-  }
-
-  Future<void> github() async {
-    final Uri url = Uri.parse("github.com/machiCHUCHU");
-
-    await launchUrl(url);
+  Future<void> _emailTo(String email) async {
+    final Uri url = Uri(scheme: 'mailto', path: email);
+    try {
+      if (!await launchUrl(url)) {
+        debugPrint('Could not launch email to $email');
+      }
+    } catch (e) {
+      debugPrint('Error launching email: $e');
+    }
   }
 
   @override
@@ -53,24 +45,24 @@ class ProfileHeader extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(60),
-              child: Image.asset("images/suit.jpg"),
+              child: Image.asset(ProfileData.profileImagePath),
             ),
           ),
         ),
         const Text(
-          "Juan Dela Cruz",
+          ProfileData.name,
           style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF312E81),
+            color: AppColors.primary,
           ),
         ),
         const Text(
-          "ASPIRING TECH SUPPORT",
+          ProfileData.title,
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF29A195),
+            color: AppColors.secondary,
             letterSpacing: 4,
           ),
         ),
@@ -80,15 +72,15 @@ class ProfileHeader extends StatelessWidget {
           spacing: 8,
           children: [
             IconButton(
-              onPressed: () => facebook(),
+              onPressed: () => _launchURL(ProfileData.facebookUrl),
               icon: Image.asset("icons/facebook.png", width: 24),
             ),
             IconButton(
-              onPressed: () => linkedin(),
+              onPressed: () => _launchURL(ProfileData.linkedinUrl),
               icon: Image.asset("icons/linkedin.png", width: 24),
             ),
             IconButton(
-              onPressed: () => github(),
+              onPressed: () => _launchURL(ProfileData.githubUrl),
               icon: Image.asset("icons/github.png", width: 24),
             ),
           ],
@@ -102,15 +94,14 @@ class ProfileHeader extends StatelessWidget {
               Expanded(
                 child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF100563),
+                    backgroundColor: AppColors.accentDark,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.all(24),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-
-                  onPressed: () => downloadResume(),
+                  onPressed: () => _launchURL(ProfileData.resumeUrl),
                   icon: Icon(Icons.download),
                   label: const Text("Download CV"),
                 ),
@@ -119,14 +110,14 @@ class ProfileHeader extends StatelessWidget {
               Expanded(
                 child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF006A61),
+                    backgroundColor: AppColors.accentTeal,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.all(24),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: () => emailTo(),
+                  onPressed: () => _emailTo(ProfileData.email),
                   icon: Icon(Icons.email),
                   label: const Text("Get in Touch"),
                 ),

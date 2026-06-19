@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/act_data.dart';
+import 'package:portfolio/theme/app_colors.dart';
 
 class Activities extends StatelessWidget {
   const Activities({super.key});
@@ -20,7 +21,7 @@ class Activities extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF312E81),
+                color: AppColors.primary,
               ),
             ),
           ),

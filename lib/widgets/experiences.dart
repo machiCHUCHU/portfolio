@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timelines_plus/timelines_plus.dart';
 import '../data/exp_data.dart';
+import '../theme/app_colors.dart';
 
 class Experiences extends StatelessWidget {
   Experiences({super.key});
@@ -18,7 +19,7 @@ class Experiences extends StatelessWidget {
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF312E81),
+              color: AppColors.primary,
             ),
           ),
           Timeline.tileBuilder(
@@ -57,7 +58,7 @@ class Experiences extends StatelessWidget {
                       Text(
                         job.company,
                         style: TextStyle(
-                          color: Color(0xFF5C5F61),
+                          color: AppColors.textDarkGrey,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -69,12 +70,12 @@ class Experiences extends StatelessWidget {
                         runSpacing: 8,
                         children: job.skills.map((skill) {
                           return Chip(
-                            backgroundColor: Color(0xFFC0C1FF),
+                            backgroundColor: AppColors.lightPurpleBackground,
                             side: BorderSide.none,
                             label: Text(
                               skill,
                               style: TextStyle(
-                                color: Color(0xFF07006C),
+                                color: AppColors.darkPurpleText,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

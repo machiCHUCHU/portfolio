@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/tools_data.dart';
+import 'package:portfolio/theme/app_colors.dart';
 
 class Tools extends StatelessWidget {
   Tools({super.key});
@@ -19,7 +20,7 @@ class Tools extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF312E81),
+                color: AppColors.primary,
               ),
             ),
           ),

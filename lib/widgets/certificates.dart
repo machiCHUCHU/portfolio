@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/data/cert_data.dart';
+import 'package:portfolio/theme/app_colors.dart';
 
 class Certificates extends StatelessWidget {
   const Certificates({super.key});
@@ -19,7 +20,7 @@ class Certificates extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF312E81),
+                                  color: AppColors.primary,
               ),
             ),
           ),
@@ -64,7 +65,7 @@ class Certificates extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
-                                  color: Color(0xFF312E81),
+                                                    color: AppColors.primary,
                                 ),
                               ),
                               Text(certs.issued),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/data/profile_data.dart';
+import 'package:portfolio/theme/app_colors.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});
@@ -17,7 +19,7 @@ class AboutMe extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: const Text(
                   "ABOUT ME",
-                  style: TextStyle(color: Color(0xFF8E9193), letterSpacing: 4),
+                  style: TextStyle(color: AppColors.textGrey, letterSpacing: 4),
                 ),
               ),
               Expanded(child: Divider(color: Colors.grey)),
@@ -34,7 +36,7 @@ class AboutMe extends StatelessWidget {
               ],
             ),
             child: const Text(
-              "Aspiring Tech Support Associate with a growing interest in technology and problem-solving. I am focused on expanding my technical toolkit every day to build a strong foundation in IT service. Ready to bring a patient, practical approach to helping users navigate technical hurdles and resolve their issues efficiently.",
+              ProfileData.bio,
               style: TextStyle(height: 1.8),
             ),
           ),
